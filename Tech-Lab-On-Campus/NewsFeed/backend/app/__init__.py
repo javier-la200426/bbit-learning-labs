@@ -15,6 +15,10 @@ def create_app():
 
     # Load JSON files into Redis
     dataset_directory = os.path.join(os.path.dirname(__file__), "../resources/dataset/news")
+
+    #
+
+    #
     REDIS_CLIENT.save_entry("all_articles", load_json_files(dataset_directory))
 
     @app.route("/ping", methods=["GET"])
@@ -26,12 +30,19 @@ def create_app():
     def get_newsfeed() -> Response:
         """Flask route to get the latest newsfeed from datastore."""
         # PART 1
-        return jsonify({}, 200)
+        articles = newsfeed.get_all_news()
+
+        return jsonify(articles) #dict converts article to dictionary
 
     @app.route("/get-featured-article", methods=["GET"])
     def get_featured_article() -> Response:
         """Flask route to get the featured article from datastore."""
         # PART 2
-        return jsonify({}, 200)
+        featured_article = newsfeed.get_featured_news()
+        if not featured_article:
+            return jsonify({"JAVerror": "No featured article found"}), 404
+
+
+        return jsonify(featured_article)
 
     return app

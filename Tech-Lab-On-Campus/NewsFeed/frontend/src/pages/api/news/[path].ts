@@ -2,6 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const url = `${process.env.BACKEND_API_URL}/${req.query.path}`;
+    console.log("Forwarding to:", url);
+
 
     if (req.method === 'GET') {
         // Handle GET request

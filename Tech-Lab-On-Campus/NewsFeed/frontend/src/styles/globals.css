@@ -46,14 +46,15 @@ There are plenty of different styling frameworks to use, and we encourage you to
   font-family: "PT Serif", serif;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal; /*changed from nowrap to normal*/
   @apply text-title text-left;
 }
 
 .featured-story-summary {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal; /* changed from nowrap to normal*/
+  
   @apply line-clamp-[8] lg:line-clamp-none text-body
 }
 .featured-story-author {
@@ -75,7 +76,9 @@ There are plenty of different styling frameworks to use, and we encourage you to
 }
 
 .news-card {
+  overflow: hidden;
   @apply p-1 col-span-1
+  
 }
 
 .news-img-div {
@@ -96,15 +99,17 @@ There are plenty of different styling frameworks to use, and we encourage you to
   font-family: "PT Serif", serif;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  
+  
   @apply text-title text-left text-2xl pb-2;
 }
 
 .story-summary {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  @apply line-clamp-[8] lg:line-clamp-none text-body
+  white-space: normal;
+  @apply line-clamp-3 text-body
 }
 
 .story-author {
