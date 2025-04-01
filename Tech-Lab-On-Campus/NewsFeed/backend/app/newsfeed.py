@@ -21,6 +21,7 @@ def get_all_news() -> list[Article]:
     # 1. Use Redis client to fetch all articles
     # 2. Format the data into articles
     # 3. Return a list of the articles formatted 
+    print("hello worlds")
     return []
 
 
